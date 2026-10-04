@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: genre
+  datasource:
+    url: 'jdbc:h2:mem:genredb;DB_CLOSE_DELAY=-1'
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  cloud:
+    config:
+      enabled: false
+    discovery:
+      enabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
