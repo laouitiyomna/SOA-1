@@ -1,0 +1,33 @@
+
+spring:
+  application:
+    name: "configserver"
+
+  profiles:
+    active: git
+
+  rabbitmq:
+    host: "${RABBITMQ_HOST:localhost}"
+    port: 5672
+    username: "guest"
+    password: "guest"
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/laouitiyomna/config-repo.git
+          default-label: main
+          clone-on-start: true
+        monitor:
+          github:
+            webhookSecret: "${WEBHOOK_SECRET:secret.tp}"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+server:
+  port: 9999
